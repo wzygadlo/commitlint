@@ -1,6 +1,6 @@
 """This module defines constants used throughout the application."""
 
-COMMIT_HEADER_MAX_LENGTH = 72
+COMMIT_HEADER_MAX_LENGTH = int(os.environ.get("COMMIT_HEADER_MAX_LENGTH", 72))
 
 COMMIT_TYPES = (
     "build",
