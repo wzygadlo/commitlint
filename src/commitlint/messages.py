@@ -2,7 +2,7 @@
 This module provides constant messages used in the application for various scenarios.
 """
 
-from .constants import COMMIT_HEADER_MAX_LENGTH, COMMIT_TYPES
+from .constants import get_header_max_length, COMMIT_TYPES
 
 VALIDATION_SUCCESSFUL = "Commit validation: successful!"
 VALIDATION_FAILED = "Commit validation: failed!"
@@ -11,7 +11,7 @@ INCORRECT_FORMAT_ERROR = (
     "Commit message does not follow the Conventional Commits format."
 )
 HEADER_LENGTH_ERROR = (
-    f"Header length cannot exceed {COMMIT_HEADER_MAX_LENGTH} characters."
+    "Header length exceeds maximum allowed characters."
 )
 COMMIT_TYPE_MISSING_ERROR = "Type is missing."
 COMMIT_TYPE_INVALID_ERROR = (

@@ -76,7 +76,9 @@ class HeaderLengthValidator(CommitValidator):
         header_max_length = get_header_max_length()
         console.verbose(f"Validating header length: {len(header)} against max: {header_max_length}")
         if len(header) > header_max_length:
-            self.add_error(HEADER_LENGTH_ERROR)
+            # Create a dynamic error message with the current max length
+            dynamic_error = f"{HEADER_LENGTH_ERROR} (max: {header_max_length}, current: {len(header)})"
+            self.add_error(dynamic_error)
 
 
 class SimplePatternValidator(CommitValidator):
