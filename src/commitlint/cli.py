@@ -94,6 +94,14 @@ def get_args() -> argparse.Namespace:
         default=False,
     )
 
+    # Add header max length parameter
+    parser.add_argument(
+        "--header-max-length",
+        type=int,
+        default=72,
+        help="Maximum allowed length for commit headers (default: 72)"
+    )
+
     # parsing args
     args = parser.parse_args()
 
@@ -218,7 +226,13 @@ def main() -> None:
     Main function for cli to check a commit message.
     """
     args = get_args()
-
+    
+    # Set header max length from CLI argument immediately
+    if hasattr(args, "header_max_length"):
+        os.environ["COMMIT_HEADER_MAX_LENGTH"] = str(args.header_max_length)
+        console.verbose(f"Setting header max length to: {args.header_max_length}")
+        print(f"Setting header max length to: {args.header_max_length}")
+    
     # setting config based on args
     config.quiet = args.quiet
     config.verbose = args.verbose

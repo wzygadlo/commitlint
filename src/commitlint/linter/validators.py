@@ -4,12 +4,13 @@ This module provides functionality to validate commit messages according to
 conventional commit standards.
 """
 
+import os
 import re
 from abc import ABC, abstractmethod
 from typing import List, Tuple, Type, Union
 
 from .. import console
-from ..constants import COMMIT_HEADER_MAX_LENGTH, COMMIT_TYPES
+from ..constants import get_header_max_length, COMMIT_TYPES
 from ..messages import (
     COMMIT_TYPE_INVALID_ERROR,
     COMMIT_TYPE_MISSING_ERROR,
@@ -71,7 +72,10 @@ class HeaderLengthValidator(CommitValidator):
             None
         """
         header = self.commit_message.split("\n")[0]
-        if len(header) > COMMIT_HEADER_MAX_LENGTH:
+        # Get the current max length value from the function
+        header_max_length = get_header_max_length()
+        console.verbose(f"Validating header length: {len(header)} against max: {header_max_length}")
+        if len(header) > header_max_length:
             self.add_error(HEADER_LENGTH_ERROR)
 
 

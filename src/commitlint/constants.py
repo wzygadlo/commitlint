@@ -1,6 +1,13 @@
 """This module defines constants used throughout the application."""
+import os
 
-COMMIT_HEADER_MAX_LENGTH = int(os.environ.get("COMMIT_HEADER_MAX_LENGTH", 72))
+# Define default value
+DEFAULT_HEADER_MAX_LENGTH = 72
+
+# Create a function to get header max length dynamically
+def get_header_max_length():
+    """Get the maximum header length from environment or use default."""
+    return int(os.environ.get("COMMIT_HEADER_MAX_LENGTH", DEFAULT_HEADER_MAX_LENGTH))
 
 COMMIT_TYPES = (
     "build",

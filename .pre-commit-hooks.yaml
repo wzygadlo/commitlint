@@ -4,3 +4,4 @@
   entry: commitlint --file
   language: python
   stages: [commit-msg]
+  args: [--header-max-length=72]  # Default value, can be overridden

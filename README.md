@@ -48,11 +48,12 @@ jobs:
 
 #### GitHub Action Inputs
 
-| #   | Name              | Type    | Default                | Description                                                           |
-| --- | ----------------- | ------- | ---------------------- | --------------------------------------------------------------------- |
-| 1   | **fail_on_error** | Boolean | `true`                 | Whether the GitHub Action should fail if commitlint detects an issue. |
-| 2   | **verbose**       | Boolean | `false`                | Enables verbose output.                                               |
-| 3   | **token**         | String  | `secrets.GITHUB_TOKEN` | GitHub Token for fetching commits using the GitHub API.               |
+| #   | Name                 | Type    | Default                | Description                                                           |
+| --- | -------------------- | ------- | ---------------------- | --------------------------------------------------------------------- |
+| 1   | **fail_on_error**    | Boolean | `true`                 | Whether the GitHub Action should fail if commitlint detects an issue. |
+| 2   | **verbose**          | Boolean | `false`                | Enables verbose output.                                               |
+| 3   | **token**            | String  | `secrets.GITHUB_TOKEN` | GitHub Token for fetching commits using the GitHub API.               |
+| 4   | **header_max_length**| Integer | `72`                   | Maximum allowed length for commit headers.                            |
 
 #### GitHub Action Outputs
 
